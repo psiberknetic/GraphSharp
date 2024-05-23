@@ -10,6 +10,16 @@ namespace GraphSharp
     {
         public IEnumerable<Node> Nodes { get; }
         public IEnumerable<Edge> Edges { get; }
-        public Graph() { }
+        public Graph() {}
+
+        public Node AddNode(string category, string? name = null)
+        {
+            if (category is null)
+            {
+                throw new ArgumentNullException(nameof(category));
+            }
+
+            return new Node();
+        }
     }
 }
