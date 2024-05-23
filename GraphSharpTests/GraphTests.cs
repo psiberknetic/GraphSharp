@@ -17,6 +17,22 @@ namespace GraphSharpTests
             graph.Nodes.Count().ShouldBe(initialCount + 1);
         }
 
+        [TestMethod]
+        public void AddNode_WithEmptyCategory_ThrowsAnException()
+        {
+            var graph = new Graph();
+            var addNode = () => { graph.AddNode(String.Empty); };
+            addNode.ShouldThrow<ArgumentException>();
+        }
+
+        [TestMethod]
+        public void AddNode_WithNullCategory_ThrowsAnException()
+        {
+            var graph = new Graph();
+            var addNode = () => { graph.AddNode(null); };
+            addNode.ShouldThrow<ArgumentException>();
+        }
+
         private Graph getPopulatedGraph()
         {
             var graph = new Graph();
