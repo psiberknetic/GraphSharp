@@ -18,6 +18,15 @@ namespace GraphSharpTests
         }
 
         [TestMethod]
+        public void AddNode_WithNoName_IncreasesNodeCountByOne()
+        {
+            var graph = getPopulatedGraph();
+            var initialCount = graph.Nodes.Count();
+            graph.AddNode("Test");
+            graph.Nodes.Count().ShouldBe(initialCount + 1);
+        }
+
+        [TestMethod]
         public void AddNode_WithEmptyCategory_ThrowsAnException()
         {
             var graph = new Graph();
